@@ -145,44 +145,44 @@ export default function Home() {
 
   return (
     <>
-  <main className="min-h-screen flex flex-col gap-10 justify-center items-center bg-gradient-to-br from-sky-100 via-white to-cyan-100 px-6 py-20 relative overflow-hidden">
+  <main className="min-h-screen flex flex-col gap-10 justify-center items-center bg-gradient-to-br from-slate-100 via-slate-50 to-cyan-50 px-6 py-20 relative overflow-hidden">
 
-    {/* background glow */}
-    <div className="absolute top-[-120px] left-[-120px] w-[350px] h-[350px] bg-cyan-300/30 rounded-full blur-3xl"></div>
-    <div className="absolute bottom-[-120px] right-[-120px] w-[350px] h-[350px] bg-blue-300/30 rounded-full blur-3xl"></div>
+  {/* soft background glow */}
+  <div className="absolute top-[-120px] left-[-120px] w-[350px] h-[350px] bg-cyan-200/40 rounded-full blur-3xl"></div>
+  <div className="absolute bottom-[-120px] right-[-120px] w-[350px] h-[350px] bg-sky-200/40 rounded-full blur-3xl"></div>
 
-    <h1 className="text-5xl md:text-6xl font-black tracking-tight text-slate-800 text-center">
-      Car Registration
-    </h1>
+  <h1 className="text-5xl md:text-6xl font-black tracking-tight text-slate-800 text-center">
+    Car Registration
+  </h1>
 
-    <div className="w-full max-w-lg flex flex-col gap-5 items-center bg-white/50 backdrop-blur-2xl border border-white/60 rounded-[32px] p-10 shadow-[0_20px_60px_rgba(0,0,0,0.08)]">
+  <div className="w-full max-w-lg flex flex-col gap-5 items-center bg-white/80 backdrop-blur-2xl border border-slate-200 rounded-[32px] p-10 shadow-[0_20px_60px_rgba(15,23,42,0.08)]">
 
-      <label
-        className="font-semibold text-slate-600 tracking-wide text-sm uppercase"
-        htmlFor="nPlate"
-      >
-        Number Plate
-      </label>
+    <label
+      className="font-semibold text-slate-600 tracking-wide text-sm uppercase"
+      htmlFor="nPlate"
+    >
+      Number Plate
+    </label>
 
-      <input
-        value={new_nPlate}
-        onChange={(e) => setnew_nPlate(e.target.value)}
-        type="text"
-        placeholder="AB12CDE"
-        id="nPlate"
-        name="nPlate"
-        className="w-full text-center text-lg font-bold tracking-[0.25em] uppercase border border-white/50 bg-white/70 text-slate-800 rounded-2xl py-4 px-6 outline-none shadow-inner transition-all duration-300 focus:bg-white focus:ring-4 focus:ring-cyan-200 placeholder:text-slate-400"
-      />
+    <input
+      value={new_nPlate}
+      onChange={(e) => setnew_nPlate(e.target.value)}
+      type="text"
+      placeholder="AB12CDE"
+      id="nPlate"
+      name="nPlate"
+      className="w-full text-center text-lg font-bold tracking-[0.25em] uppercase border border-slate-200 bg-slate-50 text-slate-800 rounded-2xl py-4 px-6 outline-none transition-all duration-300 focus:bg-white focus:ring-4 focus:ring-cyan-100 focus:border-cyan-300 placeholder:text-slate-400"
+    />
 
-      <input
-        type="submit"
-        onClick={handleRegisterCar}
-        value="Register Car"
-        className="w-full cursor-pointer rounded-2xl bg-gradient-to-r from-cyan-500 to-sky-500 py-4 font-bold text-white shadow-lg transition-all duration-300 hover:scale-[1.02] hover:shadow-cyan-300/50 active:scale-95"
-      />
-    </div>
+    <input
+      type="submit"
+      onClick={handleRegisterCar}
+      value="Register Car"
+      className="w-full cursor-pointer rounded-2xl bg-gradient-to-r from-cyan-500 to-sky-500 py-4 font-bold text-white shadow-lg transition-all duration-300 hover:scale-[1.02] hover:shadow-cyan-300/40 active:scale-95"
+    />
+  </div>
 
-  </main>
+</main>
 
   <section className="w-full flex items-center flex-col gap-6 px-6 py-16 bg-gradient-to-b from-slate-50 to-sky-50">
 
