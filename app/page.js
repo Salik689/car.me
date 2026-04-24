@@ -145,66 +145,77 @@ export default function Home() {
 
   return (
     <>
-      <main className="min-h-screen flex flex-col gap-8 justify-center items-center bg-gradient-to-br from-slate-950 via-slate-900 to-slate-800 px-6 py-16">
+  <main className="min-h-screen flex flex-col gap-10 justify-center items-center bg-gradient-to-br from-sky-100 via-white to-cyan-100 px-6 py-20 relative overflow-hidden">
 
-        <h1 className="text-5xl md:text-6xl font-black tracking-tight text-white drop-shadow-lg">
-          Car Registration
-        </h1>
+    {/* background glow */}
+    <div className="absolute top-[-120px] left-[-120px] w-[350px] h-[350px] bg-cyan-300/30 rounded-full blur-3xl"></div>
+    <div className="absolute bottom-[-120px] right-[-120px] w-[350px] h-[350px] bg-blue-300/30 rounded-full blur-3xl"></div>
 
-        <div className="w-full max-w-lg flex flex-col gap-4 items-center bg-white/10 backdrop-blur-xl border border-white/10 rounded-3xl p-8 shadow-2xl">
+    <h1 className="text-5xl md:text-6xl font-black tracking-tight text-slate-800 text-center">
+      Car Registration
+    </h1>
 
-          <label
-            className="font-semibold text-slate-200 tracking-wide text-sm uppercase"
-            htmlFor="nPlate"
-          >
-            Number Plate
-          </label>
+    <div className="w-full max-w-lg flex flex-col gap-5 items-center bg-white/50 backdrop-blur-2xl border border-white/60 rounded-[32px] p-10 shadow-[0_20px_60px_rgba(0,0,0,0.08)]">
 
-          <input
-            value={new_nPlate}
-            onChange={(e) => setnew_nPlate(e.target.value)}
-            type="text"
-            placeholder="AB12CDE"
-            id="nPlate"
-            name="nPlate"
-            className="w-full text-center text-lg font-bold tracking-widest uppercase border border-slate-600 bg-slate-900/80 text-white rounded-2xl py-4 px-6 outline-none transition-all duration-300 focus:border-blue-400 focus:ring-4 focus:ring-blue-500/20 placeholder:text-slate-400 placeholder:tracking-wider"
-          />
+      <label
+        className="font-semibold text-slate-600 tracking-wide text-sm uppercase"
+        htmlFor="nPlate"
+      >
+        Number Plate
+      </label>
 
-          <input
-            type="submit"
-            onClick={handleRegisterCar}
-            value="Register Car"
-            className="w-full cursor-pointer rounded-2xl bg-gradient-to-r from-blue-500 to-cyan-500 py-4 font-bold text-white shadow-lg transition-all duration-300 hover:scale-[1.02] hover:shadow-blue-500/30 active:scale-95"
-          />
+      <input
+        value={new_nPlate}
+        onChange={(e) => setnew_nPlate(e.target.value)}
+        type="text"
+        placeholder="AB12CDE"
+        id="nPlate"
+        name="nPlate"
+        className="w-full text-center text-lg font-bold tracking-[0.25em] uppercase border border-white/50 bg-white/70 text-slate-800 rounded-2xl py-4 px-6 outline-none shadow-inner transition-all duration-300 focus:bg-white focus:ring-4 focus:ring-cyan-200 placeholder:text-slate-400"
+      />
+
+      <input
+        type="submit"
+        onClick={handleRegisterCar}
+        value="Register Car"
+        className="w-full cursor-pointer rounded-2xl bg-gradient-to-r from-cyan-500 to-sky-500 py-4 font-bold text-white shadow-lg transition-all duration-300 hover:scale-[1.02] hover:shadow-cyan-300/50 active:scale-95"
+      />
+    </div>
+
+  </main>
+
+  <section className="w-full flex items-center flex-col gap-6 px-6 py-16 bg-gradient-to-b from-slate-50 to-sky-50">
+
+    {carInfo.map(car => (
+      <div
+        key={car[0]}
+        className="w-full max-w-2xl flex justify-between items-center rounded-[28px] px-8 py-6 bg-white/70 backdrop-blur-xl border border-white shadow-[0_10px_40px_rgba(0,0,0,0.06)] hover:scale-[1.01] hover:shadow-[0_15px_50px_rgba(0,0,0,0.08)] transition-all duration-300"
+      >
+        <div className="flex flex-col gap-1">
+          <p className="text-xl font-bold tracking-wider text-slate-800">
+            {car[1]}
+          </p>
+
+          <p className="text-sm text-slate-500">
+            Vehicle Status
+          </p>
         </div>
 
-      </main>
+        <p
+          className={`text-sm font-bold px-5 py-2 rounded-full shadow-sm ${
+            car[2] === "Taxed"
+              ? "bg-green-100 text-green-700"
+              : "bg-red-100 text-red-600"
+          }`}
+        >
+          {car[2]}
+        </p>
 
-      <section className="w-full flex items-center flex-col gap-6 px-6 py-12 bg-slate-100">
+      </div>
+    ))}
 
-        {carInfo.map(car => (
-          <div
-            key={car[0]}
-            className="w-full max-w-2xl flex justify-between items-center border border-slate-200 rounded-3xl px-8 py-6 bg-white shadow-lg hover:shadow-2xl hover:-translate-y-1 transition-all duration-300"
-          >
-            <p className="text-xl font-bold tracking-wide text-slate-800">
-              {car[1]}
-            </p>
-
-            <p
-              className={`text-lg font-bold px-4 py-2 rounded-full ${car[2] === "Taxed"
-                ? "bg-green-100 text-green-600"
-                : "bg-red-100 text-red-500"
-                }`}
-            >
-              {car[2]}
-            </p>
-
-          </div>
-        ))}
-
-      </section>
-    </>
+  </section>
+</>
   );
 }
 
